@@ -20,13 +20,15 @@
 
         <ol>
             <li v-for="item in todoList">
-                <input type="checkbox" :checked="item.done" @click='item.done = !item.done'> <span :class="{done: item.done}">{{item.name}}</span>
+                <div @click='item.done = !item.done'>
+                    <input type="checkbox" :checked="item.done"> <span :class="{done: item.done}">{{item.name}}</span>
+                </div>
             </li>
         </ol>
 
 
         <b>Itens pendentes: {{ itensPendentes }}</b>
-        
+
         <br /><br />
 
         <input type="text" v-model="todoItem">
