@@ -60,5 +60,6 @@ footer {
   width: 93%;
   border-top: 1px solid #d8d7d7;
   padding: 7px;
+  cursor: pointer;
 }
 </style>
