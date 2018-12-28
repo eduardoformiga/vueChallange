@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desafio 1</title>
+    <style>
+        .done{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <b>Estudos</b>
+
+        <ol>
+            <li v-for="item in todoList">
+                <input type="checkbox" :checked="item.done" @click='item.done = !item.done'> <span :class="{done: item.done}">{{item.name}}</span>
+            </li>
+        </ol>
+
+
+        <b>Itens pendentes: {{ itensPendentes }}</b>
+        
+        <br /><br />
+
+        <input type="text" v-model="todoItem">
+
+        <button @click="addItem">Adicionar</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                todoItem: "",
+                todoList: []
+            },
+            mounted() {
+                this.todoList = [
+                    {
+                        name: 'Aprender Vue',
+                        done: false
+                    },
+                    {
+                        name: 'Aprender VueX',
+                        done: false
+                    },
+                    {
+                        name: 'Aprender MS',
+                        done: true
+                    }
+                ]
+            },
+            methods: {
+                addItem() {
+                    const newItem = {
+                        name: this.todoItem,
+                        done: false
+                    }
+                    this.todoList.push(newItem)
+                    this.todoItem = "";
+                }
+            },
+            computed: {
+                itensPendentes() {
+                    return this.todoList.filter(item => !item.done).length
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
