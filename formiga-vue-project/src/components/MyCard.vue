@@ -32,7 +32,7 @@ div {
   position: relative;
   margin: 10px;
   width: 170px;
-  height: 330px;
+  height: 350px;
   padding: 15px;
   border-radius: 2px;
   background-color: white;
